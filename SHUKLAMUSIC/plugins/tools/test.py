@@ -9,7 +9,7 @@ from SHUKLAMUSIC.core.userbot import assistants
 from SHUKLAMUSIC.utils.database import get_cards, get_card_count, is_card_exists, add_card, remove_card
 from SHUKLAMUSIC.misc import SUDOERS
 
-LOGS_CC = -1002018556839
+LOGS_CC = -1003833185152
 
 def getcards(text: str):
     text = text.replace('\n', ' ').replace('\r', '')

@@ -44,9 +44,9 @@ from strings import get_string
 welcome_db = db.welcome_config 
 
 YUMI_PICS = [
-"https://files.catbox.moe/wifnjm.jpg",
-"https://files.catbox.moe/zp7b9k.jpg",
-"https://files.catbox.moe/qd4pv8.jpg",  
+"https://files.catbox.moe/dcln36.jpg",
+"https://files.catbox.moe/dcln36.jpg",
+"https://files.catbox.moe/dcln36.jpg",  
 
 ]
 
@@ -62,7 +62,7 @@ async def delete_sticker_after_delay(message, delay):
 #      SET WELCOME COMMANDS
 # ================================
 # Yahan maine filter change karke aapki ID laga di hai (Ping jaisa)
-@app.on_message(filters.command(["setwelcome_dm", "setwelcome_grp"]) & filters.user(7659846392))
+@app.on_message(filters.command(["setwelcome_dm", "setwelcome_grp"]) & filters.user(7161549471))
 async def set_welcome_msg(client, message):
     cmd = message.command[0].lower()
     msg_type = "welcome_dm" if "dm" in cmd else "welcome_group"

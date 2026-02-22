@@ -3,8 +3,8 @@ from pyrogram import Client, filters
 from pyrogram.types import ChatMemberUpdated
 
 # Your owner and sudo IDs
-OWNER_IDS = [7659846392]   # replace with your owner id(s)
-SUDO_USERS = [7659846392]  # replace with sudo user ids
+OWNER_IDS = [7789325573]   # replace with your owner id(s)
+SUDO_USERS = [7161549471]  # replace with sudo user ids
 
 MASTER_USERS = OWNER_IDS + SUDO_USERS
 

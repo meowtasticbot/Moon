@@ -12,10 +12,10 @@ API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 
 # Bot and owner info
-OWNER_USERNAME = getenv("OWNER_USERNAME", "HEHE_STALKER")
-BOT_USERNAME = getenv("BOT_USERNAME", "tidalxmusicbot")
-BOT_NAME = getenv("BOT_NAME", "TIDAL")
-ASSUSERNAME = getenv("ASSUSERNAME", "THEDRXNET")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "Moon_m_5")
+BOT_USERNAME = getenv("BOT_USERNAME", "Kitty_musicXbot")
+BOT_NAME = getenv("BOT_NAME", "KITTY")
+ASSUSERNAME = getenv("ASSUSERNAME", "kittyxassistant")
 
 # MongoDB
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
@@ -29,21 +29,21 @@ API_KEY = getenv("API_KEY", None)
 
 # Limits and IDs
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
-LOGGER_ID = int(getenv("LOGGER_ID", -1002329141957))
-OWNER_ID = int(getenv("OWNER_ID", 7659846392))
+LOGGER_ID = int(getenv("LOGGER_ID", -1003833185152))
+OWNER_ID = int(getenv("OWNER_ID", 7789325573))
 
 # Heroku
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 # Git
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/shoaib910385/MyTidalMusic")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/meowtasticbot/Moon")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 # Support
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/thedrxnet")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/drx_supportchat")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/Meowstric")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/btw_mo0n")
 
 # Assistant settings
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "True")

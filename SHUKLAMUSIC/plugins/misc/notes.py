@@ -82,7 +82,7 @@ async def PrivateNote(client, message):
     else:
         if await is_pnote_on(chat_id):
             await message.reply(
-                "Your notes are currently being sent in private. SHUKLAMUSIC will send a small note with a button which redirects to a private chat.",
+                "Your notes are currently being sent in private. Kitty 𐌑ᥙsiᥴ [ ɴᴏ ᴀᴅʂ ] 🎶🐾 will send a small note with a button which redirects to a private chat.",
                 quote=True
             )
         else:

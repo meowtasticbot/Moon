@@ -10,12 +10,12 @@ import random
 
 # ─── CONFIG ──────────────────────────────────────────
 BOT_USERNAME = getenv("BOT_USERNAME", "").lower()
-BOT_NAME = "tidal"
+BOT_NAME = "kitty"
 BOT_NAME_LOWER = BOT_NAME.lower()
-OWNER_USERNAME = "@Hehe_stalker"
+OWNER_USERNAME = "@Moon_m_5"
 
 # ONLY THIS ADMIN CAN CONTROL CHATBOT IN GROUPS
-CHATBOT_ADMIN_ID = 7659846392
+CHATBOT_ADMIN_ID = 7789325573
 
 groq = Groq(api_key=getenv("GROQ_API_KEY"))
 
@@ -40,7 +40,7 @@ CHATBOT_ENABLED_GROUPS = set()
 
 # ─── SYSTEM PROMPT ───────────────────────────────────
 SYSTEM_PROMPT = f"""
-Your name is Tidal. You are a girl.
+Your name is Kitty. You are a girl.
 You chat like a real human bestfriend on Telegram.
 Your Hinglish is smooth, calm, and natural.
 Personality:
@@ -96,11 +96,14 @@ def time_greeting():
 def name_trigger(text: str) -> bool:
     """
     Triggers on:
-    tidal
-    Tidal
-    hi tidal
-    tidal baby
-    tidal❤️
+    kitty
+    Kitty
+    hi kitty
+    kitty baby
+    kitty❤️
+    billi
+    cat
+    meow
     """
     text = text.lower()
     return BOT_NAME_LOWER in text

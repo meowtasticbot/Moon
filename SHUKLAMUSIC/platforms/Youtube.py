@@ -6,9 +6,9 @@ import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 from youtubesearchpython.__future__ import VideosSearch
-from NEXIOMUSIC.utils.formatters import time_to_seconds
+from SHUKLAMUSIC.utils.formatters import time_to_seconds
 import aiohttp
-from NEXIOMUSIC import LOGGER
+from SHUKLAMUSIC import LOGGER
 from typing import Union
 
 YOUR_API_URL = None
@@ -354,3 +354,4 @@ class YouTubeAPI:
                 return None, False
         except Exception:
             return None, False
+

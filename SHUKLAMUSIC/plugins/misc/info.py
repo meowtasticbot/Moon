@@ -10,7 +10,7 @@ from typing import Union, Optional
 import random
 
 random_photo = [
-    "https://files.catbox.moe/3nkhz0.jpg",
+    "https://files.catbox.moe/dcln36.jpg",
 ]
 
 # --------------------------------------------------------------------------------- #

@@ -103,6 +103,78 @@ async def helper_cb(client, CallbackQuery, _):
         await CallbackQuery.edit_message_text(helpers.HELP_15, reply_markup=keyboard)
 
 
+#------------------------------------------------------------------------------------------------------------------------
+# MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | 
+#------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+@app.on_callback_query(filters.regex("MANAGEMENT_CP") & ~BANNED_USERS)
+async def helper_cb(client, CallbackQuery):
+    await CallbackQuery.edit_message_text(Helper.HELP_M, reply_markup=InlineKeyboardMarkup(BUTTONS.MBUTTON))
+    
+        
+@app.on_callback_query(filters.regex('MANAGEMENT_BACK'))      
+async def mb_plugin_button(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    keyboard = InlineKeyboardMarkup(
+    [
+    [
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MANAGEMENT_CP")
+    ]
+    ]
+    )
+    if cb == "MANAGEMENT":
+        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+    else:
+        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
+
+
+
+
+
+#------------------------------------------------------------------------------------------------------------------------
+# TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL |
+#------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+@app.on_callback_query(filters.regex("TOOL_CP") & ~BANNED_USERS)
+async def helper_cb(client, CallbackQuery):
+    await CallbackQuery.edit_message_text(Helper.HELP_B, reply_markup=InlineKeyboardMarkup(BUTTONS.BBUTTON))
+
+
+@app.on_callback_query(filters.regex('TOOL_BACK'))      
+async def mb_plugin_button(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    keyboard = InlineKeyboardMarkup(
+    [
+    [
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"TOOL_CP")
+    ]
+    ]
+    )
+    if cb == "TOOL":
+        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+    else:
+        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
+
+
+
+
+
+
+#------------------------------------------------------------------------------------------------------------------------
+# MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP |
+#------------------------------------------------------------------------------------------------------------------------
+
+              
 
 #------------------------------------------------------------------------------------------------------------------------
 # MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | 

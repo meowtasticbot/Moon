@@ -22,7 +22,7 @@ async def start(_, msg):
     buttons = [
         [
             InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/Meowstric",),
-            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/Btw_moon",),
+            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/Btw_mo0n",),
         ],
         
           [

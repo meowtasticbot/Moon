@@ -6,12 +6,13 @@ from typing import Union, Optional
 from SHUKLAMUSIC import app
 from pyrogram import filters, enums
 from pyrogram.types import *
+from pyrogram.enums import ParseMode
 from motor.motor_asyncio import AsyncIOMotorClient
 import config
 
 
 # ================================
-# Mongo Setup (FIXED)
+# Mongo Setup
 # ================================
 
 mongo_client = AsyncIOMotorClient(config.MONGO_DB_URI)
@@ -53,13 +54,11 @@ async def get_userinfo_img(
         bg.paste(img, (440, 160), img)
 
     draw = ImageDraw.Draw(bg)
-
     font = ImageFont.truetype(font_path, 46)
     draw.text((529, 627), str(user_id), font=font, fill=(255, 255, 255))
 
     output = f"./userinfo_{user_id}.png"
     bg.save(output)
-
     return output
 
 
@@ -67,17 +66,17 @@ async def get_userinfo_img(
 # Default Caption
 # ================================
 
-INFO_TEXT = """
+DEFAULT_INFO = """
 <b>🌸 USER INFORMATION 🌸</b>
 
-🆔 <b>ID :</b> <code>{}</code>
-👤 <b>First Name :</b> {}
-👥 <b>Last Name :</b> {}
-🔗 <b>Username :</b> <code>{}</code>
-💌 <b>Mention :</b> {}
-📡 <b>Status :</b> {}
-📦 <b>DC ID :</b> {}
-📝 <b>Bio :</b> <code>{}</code>
+🆔 <b>ID :</b> <code>{id}</code>
+👤 <b>First Name :</b> {first_name}
+👥 <b>Last Name :</b> {last_name}
+🔗 <b>Username :</b> <code>{username}</code>
+💌 <b>Mention :</b> {mention}
+📡 <b>Status :</b> {status}
+📦 <b>DC ID :</b> {dc_id}
+📝 <b>Bio :</b> <code>{bio}</code>
 """
 
 
@@ -106,7 +105,7 @@ async def userstatus(user_id):
 
 
 # ================================
-# SET INFO COMMAND (FIXED)
+# SET INFO COMMAND (Premium Emoji Supported)
 # ================================
 
 @app.on_message(filters.command(["setinfo"]) & filters.user(7789325573))
@@ -115,18 +114,22 @@ async def set_info_msg(client, message):
     if not message.reply_to_message and len(message.command) < 2:
         return await message.reply_text(
             "❌ Usage:\n/setinfo Your HTML Text\n\n"
-            "Available Variables:\n"
+            "Variables:\n"
             "{id}\n{first_name}\n{last_name}\n{username}\n"
             "{mention}\n{status}\n{dc_id}\n{bio}"
         )
 
     try:
         if message.reply_to_message:
-            new_text = message.reply_to_message.text or message.reply_to_message.caption
+            new_text = (
+                message.reply_to_message.text.html
+                if message.reply_to_message.text
+                else message.reply_to_message.caption.html
+            )
         else:
-            new_text = message.text.split(None, 1)[1]
+            new_text = message.text.html.split(None, 1)[1]
 
-    except:
+    except Exception:
         return await message.reply_text("❌ Text extract failed.")
 
     await welcome_db.update_one(
@@ -135,32 +138,32 @@ async def set_info_msg(client, message):
         upsert=True,
     )
 
-    await message.reply_text("✅ Info message saved successfully!")
+    await message.reply_text("✅ Custom INFO message saved!")
 
 
 # ================================
-# Get Custom Caption
+# Get Caption
 # ================================
 
-async def get_info_caption(default_text, user_info, user, status):
+async def build_caption(user_info, user, status):
 
     data = await welcome_db.find_one({"_id": "info_caption"})
 
-    if not data:
-        return default_text
+    if data and "message" in data:
+        text = data["message"]
+    else:
+        text = DEFAULT_INFO
 
-    text = data["message"]
-
-    text = text.replace("{id}", str(user_info.id))
-    text = text.replace("{first_name}", user_info.first_name or "No Name")
-    text = text.replace("{last_name}", user_info.last_name or "No Last Name")
-    text = text.replace("{username}", f"@{user_info.username}" if user_info.username else "No Username")
-    text = text.replace("{mention}", user.mention)
-    text = text.replace("{status}", status)
-    text = text.replace("{dc_id}", str(user.dc_id))
-    text = text.replace("{bio}", user_info.bio or "No Bio")
-
-    return text
+    return text.format(
+        id=user_info.id,
+        first_name=user_info.first_name or "No Name",
+        last_name=user_info.last_name or "No Last Name",
+        username=f"@{user_info.username}" if user_info.username else "No Username",
+        mention=user.mention,
+        status=status,
+        dc_id=user.dc_id,
+        bio=user_info.bio or "No Bio",
+    )
 
 
 # ================================
@@ -182,11 +185,7 @@ async def userinfo(_, message):
         user = await app.get_users(user_id)
         status = await userstatus(user.id)
 
-        first_name = user_info.first_name or "No Name"
-        last_name = user_info.last_name or "No Last Name"
-        username = user_info.username or "No Username"
-        mention = user.mention
-        bio = user_info.bio or "No Bio"
+        caption = await build_caption(user_info, user, status)
 
         if user.photo:
             photo_path = await app.download_media(user.photo.big_file_id)
@@ -200,25 +199,10 @@ async def userinfo(_, message):
         else:
             image_path = random.choice(random_photo)
 
-        caption = await get_info_caption(
-            INFO_TEXT.format(
-                user_info.id,
-                first_name,
-                last_name,
-                username,
-                mention,
-                status,
-                user.dc_id,
-                bio,
-            ),
-            user_info,
-            user,
-            status,
-        )
-
         await message.reply_photo(
             photo=image_path,
-            caption=caption
+            caption=caption,
+            parse_mode=ParseMode.HTML
         )
 
         if isinstance(image_path, str) and image_path.startswith("./userinfo_"):

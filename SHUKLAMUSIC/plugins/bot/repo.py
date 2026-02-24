@@ -13,7 +13,7 @@ Jᴀᴀ ʜᴀɪ ᴘᴀᴅʜᴀɪ ᴋʀ Jᴀᴀᴋᴇ ᴀᴀʏᴀ ʙᴀᴅᴀ ʀ�
 ➥ᴄᴘᴜ ʟᴏᴀᴅ: 𝟷𝟷.𝟸%
 ➥ʀᴀᴍ ᴄᴏɴsᴜᴍᴘᴛɪᴏɴ: 𝟷𝟽.𝟻%||</pre>
 •──────────────────•
-ᴘᴏᴡєʀєᴅ ʙʏ»|| [- 𝛅ⴕ᧘ᥧ𝚱𝛜Ʀ ⌯](https://t.me/hehe_stalker)||
+ᴘᴏᴡєʀєᴅ ʙʏ»|| [🇲σση](https://t.me/btw_moon)||
 •──────────────────•
 """
 
@@ -21,23 +21,18 @@ Jᴀᴀ ʜᴀɪ ᴘᴀᴅʜᴀɪ ᴋʀ Jᴀᴀᴋᴇ ᴀᴀʏᴀ ʙᴀᴅᴀ ʀ�
 async def start(_, msg):
     buttons = [
         [
-            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/thedrxnet",),
-            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/drx_supportchat",),
-        ],
-        
-     [
-            InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
-            InlineKeyboardButton("˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
+            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/Meowstric",),
+            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/Btw_moon",),
         ],
         
           [
-            InlineKeyboardButton("˹ ϻʏ ϻᴧsᴛєʀ ˼ 👑", url="https://t.me/hehe_stalker"),
+            InlineKeyboardButton("˹ ϻʏ ϻᴧsᴛєʀ ˼ 👑", url="https://t.me/Moon_m_5"),
           ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await msg.reply_photo(
-        photo="https://files.catbox.moe/wifnjm.jpg",
+        photo="https://files.catbox.moe/dcln36.jpg",
         caption=start_txt,
         reply_markup=reply_markup
     )

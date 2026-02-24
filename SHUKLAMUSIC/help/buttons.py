@@ -114,7 +114,7 @@ class BUTTONS(object):
             InlineKeyboardButton("˹ ϻᴧηᴧɢєϻєηᴛ ˼", callback_data="MANAGEMENT_CP"),
         ],
         [
-            InlineKeyboardButton("˹ ᴧʟʟ ʙσᴛ's ˼", callback_data="TOOL_CP"),
+            InlineKeyboardButton("˹ ᴛσσʟs ˼", callback_data="TOOL_CP"),
             InlineKeyboardButton("˹ ɢᴧʟᴧxʏ ˼", callback_data="GALAXYBOT_CP"),
         ],
         [

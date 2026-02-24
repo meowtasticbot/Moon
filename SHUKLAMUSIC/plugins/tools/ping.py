@@ -46,8 +46,8 @@ async def set_ping_msg(client, message: Message):
 @language
 async def ping_com(client, message: Message, _):
     start = datetime.now()
-    response = await message.reply_video(
-        video="https://files.catbox.moe/so1jux.mp4",
+    response = await message.reply_photo(
+        photo="https://files.catbox.moe/dcln36.jpg",
         caption=_["ping_1"].format(app.mention),
     )
     

@@ -73,28 +73,10 @@ def stream_markup_timer(_, chat_id, played, dur):
 
     return [
         [
-            InlineKeyboardButton(
-                text=" ˹ηєᴛᴡᴏʀᴋ˼ ",
-                url="https://t.me/thedrxnet",
-                style="success"
-            ),
-            InlineKeyboardButton(
-                text=" ˹ϻʏ ʜᴏϻє˼ ",
-                url="https://t.me/drx_supportchat",
-                style="primary"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="˹ᴘʀιᴠᴧᴄʏ˼",
-                url="https://telegra.ph/Privacy-Policy-08-03-101",
-                style="primary"
-            ),
-            InlineKeyboardButton(
-                text="˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪",
-                url="http://t.me/TidalXMusicBot/tidaltunes",
-                style="success"
-            ),
+            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
+            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
             InlineKeyboardButton(
